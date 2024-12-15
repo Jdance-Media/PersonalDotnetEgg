@@ -13,7 +13,7 @@ RUN         apt update -y \
             && chmod +x dotnet-install.sh \
             && ./dotnet-install.sh -i /usr/share -v $D_V \
             && ln -s /usr/share/dotnet /usr/bin/dotnet \
-            && dotnet tool install -g dotnet-ef \
+            && dotnet tool install -g dotnet-ef --version 8.0.7 \
             && ln -s /root/.dotnet/tools/dotnet-ef /usr/bin/dotnet-ef
 
 # Switch to container user
