@@ -16,6 +16,9 @@ RUN         apt update -y \
             && dotnet tool install -g dotnet-ef --version 8.0.7 \
             && ln -s /root/.dotnet/tools/dotnet-ef /usr/bin/dotnet-ef
 
+# Ensure the container user has access to the .NET tools
+ENV PATH="/home/container/.dotnet/tools:$PATH"
+
 # Switch to container user
 USER        container
 ENV         USER=container HOME=/home/container PATH="/root/.dotnet/tools:$PATH"
